@@ -6,8 +6,9 @@ from pathlib import Path
 
 ARCHIVE_API = "https://web.archive.org/save/"
 YAML_DIR = "yamls"
-CACHE_FILE = "archived_links.json"
 
+
+CACHE_FILE = "archive_links.json"
 
 def load_cached_archives():
     if not os.path.exists(CACHE_FILE):
@@ -21,6 +22,7 @@ def load_cached_archives():
             return json.loads(content)
     except json.JSONDecodeError:
         return {}
+
 
 def save_cached_archives(cache):
     with open(CACHE_FILE, 'w') as f:

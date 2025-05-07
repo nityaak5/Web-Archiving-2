@@ -1,5 +1,5 @@
 system:
-  name: SampleModel
+  name: SampleModel1
   link: https://example.com
   type: test
   notes: Sample entry to test link archiving.

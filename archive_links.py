@@ -8,11 +8,19 @@ ARCHIVE_API = "https://web.archive.org/save/"
 YAML_DIR = "yamls"
 CACHE_FILE = "archived_links.json"
 
+
 def load_cached_archives():
-    if os.path.exists(CACHE_FILE):
-        with open(CACHE_FILE, 'r') as f:
-            return json.load(f)
-    return {}
+    if not os.path.exists(CACHE_FILE):
+        return {}
+
+    try:
+        with open(CACHE_FILE, "r") as f:
+            content = f.read().strip()
+            if not content:
+                return {}
+            return json.loads(content)
+    except json.JSONDecodeError:
+        return {}
 
 def save_cached_archives(cache):
     with open(CACHE_FILE, 'w') as f:

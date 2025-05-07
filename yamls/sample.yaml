@@ -1,0 +1,8 @@
+system:
+  name: SampleModel
+  link: https://example.com
+  type: test
+  notes: Sample entry to test link archiving.
+  extra:
+    link: ["https://example.org/one", "https://example.org/two"]
+    unrelated: something else
